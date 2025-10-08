@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabath Hemantha Science - මුල් පිටුව</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e40af', // Blue-800 for main focus
+                        'secondary-lime': '#84cc16', // Lime-500 for accents
+                        'dark-bg': '#0f172a', // Slate-900
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom styles for an enhanced, colorful background and UI elements */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Subtle radial gradient background for depth and beauty */
+            background: #e0f2f1; /* Light Cyan base */
+            background: radial-gradient(circle at top left, #f0fdf4 0%, #e0f2f1 70%, #bae6fd 100%); 
+            background-attachment: fixed;
+        }
+        .section {
+            display: none;
+        }
+        .active-nav {
+            border-bottom: 3px solid #84cc16; /* secondary-lime */
+            color: white !important; /* Ensure visibility on dark background */
+        }
+        /* Style for the responsive video container (16:9 aspect ratio) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for video */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Custom card hover effect */
+        .info-card {
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(30, 64, 175, 0.2); /* Blue shadow on hover */
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navigation Bar -->
+    <header class="bg-dark-bg shadow-2xl sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo/Site Title with Emojis -->
+                <a href="#" class="text-3xl font-extrabold text-white tracking-wider flex items-center space-x-2">
+                    <span class="text-secondary-lime">🧪</span>
+                    <span>Prabath Hemantha <span class="text-secondary-lime">Science</span></span>
+                </a>
+                
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8">
+                    <button id="nav-home" data-target="home-section" 
+                            class="nav-link text-gray-300 hover:text-secondary-lime px-3 py-2 font-medium transition duration-300 active-nav">
+                        මුල් පිටුව (Home)
+                    </button>
+                    <button id="nav-recordings" data-target="recordings-section" 
+                            class="nav-link text-gray-300 hover:text-secondary-lime px-3 py-2 font-medium transition duration-300">
+                        පන්ති පටිගත කිරීම් (Class Recordings) 🎥
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button (Hamburger) - For full responsiveness, this would toggle a mobile menu -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+        <!-- 1. Home Section -->
+        <section id="home-section" class="section active-section">
+            <div class="text-center bg-white p-8 md:p-16 rounded-3xl shadow-2xl border-t-8 border-primary-blue/50">
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-dark-bg mb-4 leading-snug">
+                    <span class="text-secondary-lime">✨</span> ප්‍රභාත් හේමන්ත <span class="text-primary-blue">විද්‍යාව</span>
+                </h1>
+                <p class="text-xl sm:text-3xl text-gray-700 mb-10 max-w-4xl mx-auto font-semibold">
+                    "Discover the world through science – <br class="sm:hidden">Your journey starts here! 🚀"
+                </p>
+                <p class="text-lg text-gray-500 italic mb-12">
+                    "විද්‍යාව තුළින් ලෝකය සොයා ගන්න – ඔබේ ගමන ආරම්භ වන්නේ මෙතැනින්!"
+                </p>
+                
+                <div class="space-y-4 sm:space-y-0 sm:space-x-8">
+                    <a href="#" onclick="showSection('recordings-section'); return false;"
+                       class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-bold rounded-xl shadow-xl text-white bg-primary-blue hover:bg-blue-700 transition duration-300 transform hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-primary-blue/50">
+                        පන්ති පටිගත කිරීම් බලන්න 🎓
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-10 py-4 border-2 border-primary-blue text-lg font-bold rounded-xl shadow-xl text-primary-blue bg-white hover:bg-blue-50 transition duration-300 transform hover:scale-[1.05]">
+                        වැඩි විස්තර (Contact) 📞
+                    </a>
+                </div>
+            </div>
+
+            <!-- Enhanced Content Cards -->
+            <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
+                <div class="info-card bg-white p-8 rounded-2xl shadow-lg border-b-4 border-secondary-lime">
+                    <span class="text-4xl mb-4 block">💻</span>
+                    <h3 class="text-xl font-bold text-primary-blue">නවීන Zoom තාක්ෂණය</h3>
+                    <p class="mt-2 text-gray-600">Zoom හරහා නවතම, උසස් තත්ත්වයේ පාඩම් අත්දැකීම ලබා ගන්න.</p>
+                </div>
+                <div class="info-card bg-white p-8 rounded-2xl shadow-lg border-b-4 border-secondary-lime">
+                    <span class="text-4xl mb-4 block">📚</span>
+                    <h3 class="text-xl font-bold text-primary-blue">සුවිශේෂී ප්‍රශ්න පත්‍ර</h3>
+                    <p class="mt-2 text-gray-600">විභාග ඉලක්ක කරගත්, විචාරාත්මක චින්තනය වර්ධනය කරන ප්‍රශ්න පත්‍ර කට්ටල.</p>
+                </div>
+                <div class="info-card bg-white p-8 rounded-2xl shadow-lg border-b-4 border-secondary-lime">
+                    <span class="text-4xl mb-4 block">⏱️</span>
+                    <h3 class="text-xl font-bold text-primary-blue">ඕනෑම වේලාවක ඉගෙන ගන්න</h3>
+                    <p class="mt-2 text-gray-600">පටිගත කිරීම් හරහා ඔබට පහසු ඕනෑම වෙලාවක නැවත පාඩම් බලන්න.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Class Recordings Section (Initially Hidden) -->
+        <section id="recordings-section" class="section">
+            <h2 class="text-4xl font-extrabold text-dark-bg mb-8 border-b-4 border-secondary-lime pb-3 flex items-center space-x-3">
+                <span>පන්ති පටිගත කිරීම් (Class Recordings)</span> <span class="text-secondary-lime">▶️</span>
+            </h2>
+            
+            <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-primary-blue/10">
+                <h3 class="text-2xl font-bold text-primary-blue mb-4">2025.10.01 Class Recording</h3>
+                <p class="text-gray-600 mb-8 font-medium">මෙම වීඩියෝව Zoom තාක්ෂණය ඔස්සේ පැවැත්වුනු පන්තියේ සම්පූර්ණ පටිගත කිරීමයි. සිසුන්ට පහසුවෙන් නැරඹිය හැකිය.</p>
+
+                <!-- Responsive Video Embed Container (16:9) -->
+                <div class="video-container">
+                    <!-- The user-provided iframe code, adapted for full container width/height -->
+                    <iframe title="vimeo-player" 
+                            src="https://player.vimeo.com/video/1124464186?h=af107e98b9" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="mt-8 text-center pt-6 border-t border-gray-100">
+                    <button onclick="showSection('home-section')"
+                       class="inline-flex items-center px-8 py-3 border border-transparent text-base font-bold rounded-xl text-dark-bg bg-secondary-lime hover:bg-lime-600 transition duration-300 shadow-lg transform hover:scale-[1.02]">
+                        ← මුල් පිටුවට යන්න
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 Prabath Hemantha Science. All rights reserved. <span class="text-secondary-lime">🔬</span></p>
+            <p class="mt-2 text-sm">විද්‍යාව තුළින් දැනුම ලබන්න.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation Logic -->
+    <script>
+        // DOM element selections
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Function to show the selected section and update navigation state
+        function showSection(targetId) {
+            // Hide all sections
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the target section
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+
+            // Update active navigation link
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav', 'text-white');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('data-target') === targetId) {
+                    link.classList.add('active-nav', 'text-white');
+                    link.classList.remove('text-gray-300');
+                }
+            });
+            
+            // Scroll to top of the content for better UX
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize: Show the home section on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home-section');
+
+            // Attach click listeners to navigation buttons
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = link.getAttribute('data-target');
+                    showSection(target);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
